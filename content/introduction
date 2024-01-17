@@ -1,3 +1,22 @@
+What is OpenFOAM ?
+------------------
+
+- OpenFOAM is an open source Computation Fluid Dynamics (CFD) solve released and developed primarily by OpenCFD Ltd since 2004. 
+
+- It has a large user base across most areas of engineering and science, from both commercial and academic organizations. 
+
+- OpenFOAM has an extensive range of features to solve anything from complex fluid flows involving chemical reactions, turbulence and heat transfer, to acoustics, solid mechanics and electromagnetics. 
+
+- There are two main branches of OpenFOAM, 
+
+  - one is from OpenFOAM Foundation (`www.openfoam.org <http://www.openfoam.org>`_),
+  - and the other is OpenCFD Ltd (`www.openfoam.com <http://www.openfoam.com>`_).
+  - In this guide, we only consider the later
+
+-  Extensive guides, tutorials, code samples and documentation on the OpenFOAM
+   can be found at `www.openfoam.com <http://www.openfoam.com>`_.
+
+
 Different variants of OpenFOAM
 ------------------------------
 
