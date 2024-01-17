@@ -80,15 +80,15 @@ OpenFOAM cases are configured using plain text input files located across the th
 
 system: contains input files for grid generators and solvers
 
-    controlDict
-    fvSchemes
-    fvSolution
-    fvOptions
+    - controlDict
+    - fvSchemes
+    - fvSolution
+    - fvOptions
     <system dictionaries>
 
 constant: Contains values that are constant during simulation like transport properties of the fluid (viscosity models) and mesh coordinates
 
-    polyMesh
+    - polyMesh
     <constant dictionaries>
 
 <initial time directory>: contains initial fields of the flow e.g. velocity, pressure etc. and boundary conditions
