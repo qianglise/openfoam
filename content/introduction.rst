@@ -208,3 +208,19 @@ The Expressions syntax enables users to define custom expressions for use in a v
 The Expressions functionality is a re-implementation of swak4Foam created by Bernhard Gschaider and it was introduced since version v1912.
 
 The following sections describe how to write the expressions and provide an overview of the range of functionality.
+
+
+
+
+
+
+Summary
+- fvOptions and functionObject practically remove the need for
+modifying the solver, as long as it captures your physics.
+- Lot’s of fvOptions and functionObjects out there. Try and play with
+them during the hands on!
+There is a coded type of fvOption and functionObject, which
+allows you to simply write you own C++ to be executed! Will be
+compiled when the case runs, with no involvment from your side.
+
+
