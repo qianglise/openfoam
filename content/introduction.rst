@@ -224,3 +224,46 @@ allows you to simply write you own C++ to be executed! Will be
 compiled when the case runs, with no involvment from your side.
 
 
+
+
+
+
+
+OpenFOAM executables
+• Unlike many other software, OpenFOAM does not have a unique
+executable. For every solver, mesh generation etc. there is a separate
+executable!
+• You should run the right executable according to the solver you are
+using!
+• ‘simpleFoam’: if you use SIMPLE algorithm
+• ‘icoFoam’: if you use PISO algorithm for laminar flow
+• ...
+• Check the documentation to see recommended solvers for different cases
+
+
+OpenFOAM output files
+• Similar to the input files, the output files are also in plain text
+dictionary format
+
+
+
+
+
+
+
+Meshing
+-------
+
+Mesh generation
+~~~~~~~~~~~~~~~
+
+There are a couple of mesher available:
+
+- blockMesh – Block-structured hexahedral mesher
+- snappyHexMesh – Unstructured hexa-dominated mesher
+- cfMesh – Unstructured mesher with different available meshing strategies
+
+Mesh manipulation
+~~~~~~~~~~~~~~~~~
+Mesh conversion
+~~~~~~~~~~~~~~~
