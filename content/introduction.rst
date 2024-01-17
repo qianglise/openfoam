@@ -21,20 +21,11 @@ OpenFOAM Introduction
 What is OpenFOAM ?
 ------------------
 
-- OpenFOAM is an open source Computation Fluid Dynamics (CFD) solve released and developed primarily by OpenCFD Ltd since 2004. 
+- OpenFOAM® (for “Open-source Field Operation And Manipulation”) is an open source Computation Fluid Dynamics (CFD) solve released and developed primarily by OpenCFD Ltd since 2004. 
 
 - It has a large user base across most areas of engineering and science, from both commercial and academic organizations. 
 
 - OpenFOAM has an extensive range of features to solve anything from complex fluid flows involving chemical reactions, turbulence and heat transfer, to acoustics, solid mechanics and electromagnetics. 
-
-- There are two main branches of OpenFOAM, 
-
-  - one is from OpenFOAM Foundation (`www.openfoam.org <http://www.openfoam.org>`_),
-  - and the other is OpenCFD Ltd (`www.openfoam.com <http://www.openfoam.com>`_).
-  - In this guide, we only consider the later
-
--  Extensive guides, tutorials, code samples and documentation on the OpenFOAM
-   can be found at `www.openfoam.com <http://www.openfoam.com>`_.
 
 
 Different variants of OpenFOAM
@@ -42,12 +33,12 @@ Different variants of OpenFOAM
 
 There are two main variants of OpenFOAM:
 
-    OpenCFD version:
+    OpenCFD Ltd version (`www.openfoam.com <http://www.openfoam.com>`_):
         - New versions released twice a year (June-December)
         - Versions are named as (vYYMM) e.g. v1912
         - Website: https://www.openfoam.com
 
-    OpenFOAM foundation version:
+    OpenFOAM foundation version (`www.openfoam.org <http://www.openfoam.org>`_):
         - No defined date for new release 
         - Versions are named with with two digits like 4.1
         - Website: https://openfoam.org
@@ -66,7 +57,7 @@ It depends on the features you want to use
     - If both include the features you need, do some performance and accuracy benchmarks to see which one is better
     - Otherwise it is just matter of taste!
 
-We will be using vXXXXXX for the training
+We will be using the OpenCFD Ltd version with vXXXXXX for the training
 
 
 
@@ -80,15 +71,15 @@ OpenFOAM cases are configured using plain text input files located across the th
 
 system: contains input files for grid generators and solvers
 
-    - controlDict
-    - fvSchemes
-    - fvSolution
-    - fvOptions
+    controlDict
+    fvSchemes
+    fvSolution
+    fvOptions
     <system dictionaries>
 
 constant: Contains values that are constant during simulation like transport properties of the fluid (viscosity models) and mesh coordinates
 
-    - polyMesh
+    polyMesh
     <constant dictionaries>
 
 <initial time directory>: contains initial fields of the flow e.g. velocity, pressure etc. and boundary conditions
@@ -109,51 +100,36 @@ The controlDict dictionary is used to specify the main case controls. This inclu
 
 An example dictionary is shown below:
 
-/*--------------------------------*- C++ -*----------------------------------*\
-| =========                 |                                                 |
-| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  v2312                                 |
-|   \\  /    A nd           | Website:  www.openfoam.com                      |
-|    \\/     M anipulation  |                                                 |
-\*---------------------------------------------------------------------------*/
-FoamFile
-{
-    version     2.0;
-    format      ascii;
-    class       dictionary;
-    object      controlDict;
-}
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
-application     icoFoam;
-
-startFrom       startTime;
-
-startTime       0;
-
-stopAt          endTime;
-
-endTime         0.5;
-
-deltaT          0.005;
-
-writeControl    timeStep;
-
-writeInterval   20;
-
-purgeWrite      0;
-
-writeFormat     ascii;
-
-writePrecision  6;
-
-writeCompression off;
-
-timeFormat      general;
-
-timePrecision   6;
-
-runTimeModifiable true;
 
 
-// ************************************************************************* //
+fvSchemes
+~~~~~~~~~
+
+An example dictionary is shown below:
+
+fvSolution
+~~~~~~~~~~
+
+An example dictionary is shown below:
+
+fvOptions
+~~~~~~~~~
+
+Many OpenFOAM applications contain equation systems that can be manipulated at run time via user-specified finite volume options, given by the shorthand fvOptions. These provide, e.g. additional source/sink terms, or enforce constraints.
+
+Options include:
+
+    Sources
+    Corrections
+    Constraints
+
+
+Further information
+
+Source code:
+
+    $FOAM_SRC/fvOptions
+
+API:
+
+    grpFvOptions
