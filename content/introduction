@@ -1,0 +1,35 @@
+Different variants of OpenFOAM
+------------------------------
+
+There are two main variants of OpenFOAM:
+
+    OpenCFD version:
+
+        - New versions released twice a year (June-December)
+        - Versions are named as (vYYMM) e.g. v1912
+        - Website: https://www.openfoam.com
+
+    OpenFOAM foundation version:
+
+        - No defined date for new release 
+        - Versions are named with with two digits like 4.1
+        - Website: https://openfoam.org
+
+
+One can read the history if interested:
+https://www.openfoam.com/news/history
+
+
+Which version to use?
+---------------------
+
+It depends on the features you want to use
+
+    - Check the website and release notes to see which one fits better to your framework
+    - If both include the features you need, do some performance and accuracy benchmarks to see which one is better
+    - Otherwise it is just matter of taste!
+
+We will be using vXXXXXX for the training
+
+
+
