@@ -1,3 +1,23 @@
+.. _introduction:
+
+OpenFOAM Introduction
+=====================
+
+.. questions::
+
+   - What is 
+   - What problem do 
+
+.. objectives::
+
+   - Explain 
+
+.. instructor-note::
+
+   - 15 min teaching
+   - 0 min exercises
+
+
 What is OpenFOAM ?
 ------------------
 
