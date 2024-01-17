@@ -194,3 +194,17 @@ The main basic entry types include:
       * - tensor
         - a nine component tensor defined by (xx xy xz yx yy yz zx zy zz)
         - `(0 0 0 0 0 0 0 0 0)`
+
+
+Expressions
+-----------
+
+The Expressions syntax enables users to define custom expressions for use in a variety of scenarios, including:
+
+    - input dictionaries
+    - boundary conditions
+    - utilities, e.g. setting field values
+
+The Expressions functionality is a re-implementation of swak4Foam created by Bernhard Gschaider and it was introduced since version v1912.
+
+The following sections describe how to write the expressions and provide an overview of the range of functionality.
