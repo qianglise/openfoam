@@ -1,7 +1,7 @@
-.. _introduction:
+.. _numerics:
 
-OpenFOAM Introduction
-=====================
+Numerics
+========
 
 .. questions::
 

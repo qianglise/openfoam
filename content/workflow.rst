@@ -1,7 +1,7 @@
-.. _introduction:
+.. _workflow:
 
-OpenFOAM Introduction
-=====================
+Workflow
+========
 
 .. questions::
 
