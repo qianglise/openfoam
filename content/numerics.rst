@@ -105,7 +105,7 @@ Time scheme properties are input in the fvSchemes file under the ddtSchemes sub-
 
    .. tab:: Time scheme properties
 
-      .. code-block:: cpp
+      .. code-block:: console
 
          ddtSchemes
          {
@@ -115,13 +115,6 @@ Time scheme properties are input in the fvSchemes file under the ddtSchemes sub-
 
 
 
-
-
-ddtSchemes
-{
-    default         none;
-    ddt(Q)          <time scheme>;
-}
 
 Available time schemes include
 
