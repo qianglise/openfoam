@@ -10,7 +10,7 @@ OpenFOAM Introduction
 
 .. objectives::
 
-   - Explain 
+   - introduce the basics of OpenFOAM
 
 .. instructor-note::
 
