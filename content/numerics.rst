@@ -138,6 +138,28 @@ At their core, spatial schemes rely heavily on interpolation schemes to transfor
 
 
 
+OpenFOAM executables
+Unlike many other software, OpenFOAM does not have a unique executable. 
+For every solver, mesh generation etc. there is a separate executable! 
+You should run the right executable according to the solver you are
+using!
+
+- ‘simpleFoam’: if you use SIMPLE algorithm
+- ‘icoFoam’: if you use PISO algorithm for laminar flow
+- ...
+
+Check the documentation to see recommended solvers for different cases
+
+
+Pressure-velocity coupling
+
+    Introduction: Pressure-velocity algorithms
+    Steady state: SIMPLE
+    Transient: PISO
+    Transient: PIMPLE
+
+Capability matrix
+
 
 
 
@@ -154,18 +176,6 @@ compiled when the case runs, with no involvment from your side.
 
 
 
-
-
-OpenFOAM executables
-• Unlike many other software, OpenFOAM does not have a unique
-executable. For every solver, mesh generation etc. there is a separate
-executable!
-• You should run the right executable according to the solver you are
-using!
-• ‘simpleFoam’: if you use SIMPLE algorithm
-• ‘icoFoam’: if you use PISO algorithm for laminar flow
-• ...
-• Check the documentation to see recommended solvers for different cases
 
 
 OpenFOAM output files
