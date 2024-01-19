@@ -99,6 +99,34 @@ Temporal schemes
 
 OpenFOAM includes a variety of schemes to integrate fields with respect to time:
 
+Time scheme properties are input in the fvSchemes file under the ddtSchemes sub-dictionary using the syntax:
+
+.. tab:: Time scheme properties
+         ddtSchemes
+         {
+             default         none;
+             ddt(Q)          <time scheme>;
+         }
+
+
+
+
+
+ddtSchemes
+{
+    default         none;
+    ddt(Q)          <time scheme>;
+}
+
+Available time schemes include
+
+    Backward time scheme
+    Crank-Nicolson time scheme
+    Euler implicit time scheme
+    Local Euler implicit/explicit time scheme
+    Steady state time scheme
+
+
     Time
 
 Spatial schemes
