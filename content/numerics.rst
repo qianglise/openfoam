@@ -37,18 +37,16 @@ of the general scalar transport equation for the property $$ \phi $$ takes the
 form:
 
 .. math::
-      \underbrace{\ddt{\rho \phi}}_{\mathrm{unsteady}}
-    + \underbrace{\div \left(\rho \phi \u \right)}_{\mathrm{convection}}
-    = \underbrace{\div \left(\Gamma \grad \phi \right)}_{\mathrm{diffusion}}
-    + \underbrace{S_\phi}_{\mathrm{source}}
+   \frac{\partial \rho \phi }{\partial t} +  \nabla \div \left(\rho \phi \u \right) =  \div \left(\Gamma \grad \phi \right) + S_\phi 
+
 
 
 The Finite Volume Method requires the integration over a 3-D control volume,
 such that:
 
 .. math::
-      \int_V \ddt{\rho \phi} dV
-    + \int_V \div \left(\rho \phi \u \right) dV
+      \int_V \frac{\partial \rho \phi }{\partial t}  dV
+    + \int_V  \div \left(\rho \phi \u \right) dV
     = \int_V \div \left(\Gamma \grad \phi \right) dV
     + \int_V S_\phi dV
 
@@ -57,25 +55,25 @@ This equation is discretised to produce a system of algebraic equations of the
 form
 
 .. math::
-    \begin{bmatrix}
+    \begin{equations}
         a_{11} & a_{12} & \dots  & a_{1n}  \\
         a_{21} & a_{22} & \dots  & a_{2n}  \\
         \vdots & \vdots & \ddots & \vdots  \\
         a_{n1} & a_{n2} & \dots  & a_{nn}
-    \end{bmatrix}
-    \begin{bmatrix}
+    \end{equations}
+    \begin{equations}
         x_{1}  \\
         x_{2}  \\
         \vdots \\
         x_{n}
-    \end{bmatrix}
+    \end{equations}
     =
-    \begin{bmatrix}
+    \begin{equations}
         b_{1}  \\
         b_{2}  \\
         \vdots \\
         b_{n}
-    \end{bmatrix}
+    \end{equations}
 
 
 or more concisely:
@@ -86,44 +84,35 @@ or more concisely:
 
 where:
 
-$$\mat{A}$$
+\mat{A}
 : coefficient matrix
 
-$$\vec{x}$$
+$\vec{x}$
 : vector of unknowns
 
-$$\vec{b}$$
+$\vec{b}$
 : source vector
 
 The discretisation process employs user selected schemes to build the
-$$\mat{A}$$ matrix and $$ \vec{b}$$ vector, described in the following
+\mat{A} matrix and \vec{b} vector, described in the following
 sections.  Choice of schemes are set in the
-<%= link_to_menuid "fvschemes" %> dictionary.
+ "fvschemes"  dictionary.
 
-## Temporal schemes {#time}
+
+Temporal schemes
 
 OpenFOAM includes a variety of schemes to integrate fields with respect to time:
 
-- <%= link_to_menuid "schemes-time" %>
+    Time
 
-## Spatial schemes {#spatial}
+Spatial schemes
 
-At their core, spatial schemes rely heavily on
-[interpolation schemes](ref_id://schemes-interpolation) to transform
-cell-based quantities to cell faces, in combination with
-[Gauss Theorem](ref_id://schemes-gausstheorem) to
-convert volume integrals to surface integrals.
+At their core, spatial schemes rely heavily on interpolation schemes to transform cell-based quantities to cell faces, in combination with Gauss Theorem to convert volume integrals to surface integrals.
 
-- <%= link_to_menuid "schemes-gradient" %>
-- <%= link_to_menuid "schemes-divergence" %>
-- <%= link_to_menuid "schemes-laplacian" %>
-- <%= link_to_menuid "schemes-sngrad" %>
-
-## Wall distance calculation method {#wall-distance}
-
-Distance to the nearest wall is required, e.g. for a number of turbulence
-models.  Several calculation methods are available:
-
+    Gradient
+    Divergence
+    Laplacian
+    SnGrad
 
 
 
