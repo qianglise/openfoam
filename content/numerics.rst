@@ -102,7 +102,9 @@ OpenFOAM includes a variety of schemes to integrate fields with respect to time:
 Time scheme properties are input in the fvSchemes file under the ddtSchemes sub-dictionary using the syntax:
 
 .. tab:: Time scheme properties
-   .. code-block:: console
+
+      .. code-block:: cpp
+
          ddtSchemes
          {
              default         none;
