@@ -44,18 +44,17 @@ such that:
 .. math::
       \int_V \frac{\partial \rho \phi }{\partial t}  dV
     + \int_V  \nabla \cdot \left(\rho \phi \vec{u} \right) dV
-    = \int_V \nabla \left(\Gamma \grad \phi \right) dV
+    = \int_V \nabla \cdot \left(\Gamma \nabla \phi \right) dV
     + \int_V S_\phi dV
 
 
-This equation is discretised to produce a system of algebraic equations of the
-form
+This equation is discretised to produce a system of algebraic equations of the form
 
 .. math::
     \begin{equation}
-        a_{11} & a_{12} & \dots  & a_{1n}  \\
-        a_{21} & a_{22} & \dots  & a_{2n}  \\
-        \vdots & \vdots & \ddots & \vdots  \\
+        a_{11} & a_{12} & \cdots  & a_{1n}  \\
+        a_{21} & a_{22} & \cdot  & a_{2n}  \\
+        \vdots & \vdots & \dots & \vdots  \\
         a_{n1} & a_{n2} & \dots  & a_{nn}
     \end{equation}
     \begin{equation}
@@ -64,7 +63,7 @@ form
         \vdots \\
         x_{n}
     \end{equation}
-    =
+    
     \begin{equation}
         b_{1}  \\
         b_{2}  \\
