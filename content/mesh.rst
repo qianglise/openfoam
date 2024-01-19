@@ -135,6 +135,7 @@ Conversion
     fireToFoam
     fluentMeshToFoam, fluent3DMeshToFoam
     gmshToFoam
+    ansysfoam
   
 
 Conclusions
