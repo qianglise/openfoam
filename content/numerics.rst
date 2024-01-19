@@ -105,7 +105,7 @@ Time scheme properties are input in the fvSchemes file under the ddtSchemes sub-
 
    .. tab:: Time scheme properties
 
-      .. code-block:: console
+      .. code-block:: csv
 
          ddtSchemes
          {
