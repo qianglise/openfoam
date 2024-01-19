@@ -110,22 +110,21 @@ Time scheme properties are input in the fvSchemes file under the ddtSchemes sub-
          ddtSchemes
          {
              default         none;
-             ddt(Q)          **<time scheme>**;
+             ddt(Q)          <time scheme>;
          }
 
 
 
 
-Available time schemes include
+Available **<time scheme>** include
 
-    Backward time scheme
-    Crank-Nicolson time scheme
-    Euler implicit time scheme
-    Local Euler implicit/explicit time scheme
-    Steady state time scheme
+    - Backward time scheme
+    - Crank-Nicolson time scheme
+    - Euler implicit time scheme
+    - Local Euler implicit/explicit time scheme
+    - Steady state time scheme
 
 
-    Time
 
 Spatial schemes
 
