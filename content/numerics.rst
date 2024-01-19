@@ -105,12 +105,12 @@ Time scheme properties are input in the fvSchemes file under the ddtSchemes sub-
 
    .. tab:: Time scheme properties
 
-      .. code-block:: csv
+      .. code-block:: txt
 
          ddtSchemes
          {
              default         none;
-             ddt(Q)          <time scheme>;
+             ddt(Q)          **<time scheme>**;
          }
 
 
