@@ -17,9 +17,8 @@ Numerics
    - 15 min teaching
    - 0 min exercises
 
-
-Intro
------
+Numerical schemes
+-----------------
 
 OpenFOAM includes a wide range of solution and scheme controls, specified via dictionary files in the case system sub-directory. These are described by:
 
@@ -27,17 +26,15 @@ OpenFOAM includes a wide range of solution and scheme controls, specified via di
     - Solution methods: Case solution parameters are specified in the fvSolution dictionary. These include choice of linear equation solver per field variable, algorithm controls e.g. number of inner and outer iterations and under-relaxation.
 
 
-Numerical schemes
------------------
 
 OpenFOAM applications are designed for use with unstructured meshes, offering up
 to second order accuracy, predominantly using collocated variable arrangements.
 Most focus on the Finite Volume Method, for which the conservative form
-of the general scalar transport equation for the property $$ \phi $$ takes the
+of the general scalar transport equation for the property  :math:`\phi`  takes the
 form:
 
 .. math::
-   \frac{\partial \rho \phi }{\partial t} +  \nabla \div \left(\rho \phi \u \right) =  \div \left(\Gamma \grad \phi \right) + S_\phi 
+   \frac{\partial \rho \phi }{\partial t} +  \nabla \cdot \left(\rho \phi \vec{u} \right) =  \nabla \cdot \left(\Gamma \nabla \phi \right) + S_\phi 
 
 
 
@@ -46,8 +43,8 @@ such that:
 
 .. math::
       \int_V \frac{\partial \rho \phi }{\partial t}  dV
-    + \int_V  \div \left(\rho \phi \u \right) dV
-    = \int_V \div \left(\Gamma \grad \phi \right) dV
+    + \int_V  \nabla \cdot \left(\rho \phi \vec{u} \right) dV
+    = \int_V \nabla \left(\Gamma \grad \phi \right) dV
     + \int_V S_\phi dV
 
 
@@ -55,46 +52,46 @@ This equation is discretised to produce a system of algebraic equations of the
 form
 
 .. math::
-    \begin{equations}
+    \begin{equation}
         a_{11} & a_{12} & \dots  & a_{1n}  \\
         a_{21} & a_{22} & \dots  & a_{2n}  \\
         \vdots & \vdots & \ddots & \vdots  \\
         a_{n1} & a_{n2} & \dots  & a_{nn}
-    \end{equations}
-    \begin{equations}
+    \end{equation}
+    \begin{equation}
         x_{1}  \\
         x_{2}  \\
         \vdots \\
         x_{n}
-    \end{equations}
+    \end{equation}
     =
-    \begin{equations}
+    \begin{equation}
         b_{1}  \\
         b_{2}  \\
         \vdots \\
         b_{n}
-    \end{equations}
+    \end{equation}
 
 
 or more concisely:
 
 .. math::
-    \mat{A} \vec{x} = \vec{b}
+    A \vec{x} = \vec{b}
 
 
 where:
 
-\mat{A}
+:math:`A`
 : coefficient matrix
 
-$\vec{x}$
+:math:`\vec{x}`
 : vector of unknowns
 
-$\vec{b}$
+:math:`\vec{b}`
 : source vector
 
 The discretisation process employs user selected schemes to build the
-\mat{A} matrix and \vec{b} vector, described in the following
+A matrix and \vec{b} vector, described in the following
 sections.  Choice of schemes are set in the
  "fvschemes"  dictionary.
 
