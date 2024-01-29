@@ -135,10 +135,124 @@ Spatial schemes
 
 At their core, spatial schemes rely heavily on interpolation schemes to transform cell-based quantities to cell faces, in combination with Gauss Theorem to convert volume integrals to surface integrals.
 
-    Gradient
-    Divergence
-    Laplacian
-    SnGrad
+Gradient
+++++++++
+
+Gradient schemes are specified in the fvSchemes file under the gradSchemes sub-dictionary using the syntax:
+
+gradSchemes
+{
+    default         none;
+    grad(p)         <optional limiter> <gradient scheme> <interpolation scheme>;
+}
+
+Gradient schemes
+
+   - Gauss gradient scheme
+   - Least-squares gradient scheme
+
+Interpolation schemes
+
+   - linear: cell-based linear
+   - pointLinear: point-based linear
+   - leastSquares: Least squares
+
+Gradient limiters
+
+The limited gradient schemes attempt to preserve the monotonicity condition by limiting the gradient to ensure that the extrapolated face value is bounded by the neighbouring cell values.
+
+   - Cell-limited gradient scheme
+   - Face-limited gradient scheme
+   - Multi-directional cell-limited gradient scheme
+   - Multi-directional face-limited gradient scheme
+   - clippedLinear: limits linear scheme according to a hypothetical cell size ratio
+
+
+Divergence
+++++++++++
+
+Divergence schemes are specified in the fvSchemes file under the divSchemes sub-dictionary using the general syntax:
+
+divSchemes
+{
+    default         none;
+    div(Q)          Gauss <interpolation scheme>;
+}
+
+A typical use is for convection schemes, which transport a property,
+under the influence of a velocity field
+
+, specified using:
+
+divSchemes
+{
+    default         none;
+    div(phi,Q)      Gauss <interpolation scheme>;
+}
+
+The phi keyword is typically used to represent the flux (flow) across cell faces, i.e.
+https://doc.openfoam.com/2312/tools/processing/numerics/schemes/divergence/
+- volumetric flux:
+- mass flux:
+
+
+NVD/TVD convection schemes
+
+Many of the convection schemes available in OpenFOAM are based on the TVD and NVD [PROVIDE REF] For further information, see the page invalid item schemes-divergence-nvdtvd
+
+    Limited linear divergence scheme
+    Linear divergence scheme
+    Linear-upwind divergence scheme
+    MUSCL divergence scheme
+    Mid-point divergence scheme
+    Minmod divergence scheme
+    QUICK divergence scheme
+    UMIST divergence scheme
+    Upwind divergence scheme
+    Van Leer divergence scheme
+
+Non-NVD/TVD convection schemes
+
+    Courant number blended divergence scheme
+    DES hybrid divergence scheme
+    Filtered Linear (2) divergence scheme
+    LUST divergence scheme
+
+
+
+Laplacian
++++++++++
+
+Laplacian schemes are specified in the fvSchemes file under the laplacianSchemes sub-dictionary using the syntax:
+
+laplacianSchemes
+{
+    default         none;
+    laplacian(gamma,phi) Gauss <interpolation scheme> <snGrad scheme>
+}
+
+All options are based on the application of Gauss theorem, requiring an interpolation scheme to transform coefficients from cell values to the faces, and a surface-normal gradient scheme.
+
+
+SnGrad
+++++++
+
+Surface-normal gradient schemes are specified in the fvSchemesfile under the snGradSchemes sub-dictionary using the syntax:
+
+snGradSchemes
+{
+    default         none;
+    snGrad(Q)       <snGrad scheme>;
+}
+
+Options
+
+    Corrected surface-normal gradient scheme
+    Face-corrected surface-normal gradient scheme
+    Limited surface-normal gradient scheme
+    Orthogonal surface-normal gradient scheme
+    Uncorrected surface-normal gradient scheme
+
 
 
 
