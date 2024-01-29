@@ -52,10 +52,12 @@ This equation is discretised to produce a system of algebraic equations of the f
 
 .. math::
     \begin{equation}
-        a_{11} & a_{12} & \cdots  & a_{1n}  \\
-        a_{21} & a_{22} & \cdot  & a_{2n}  \\
-        \vdots & \vdots & \dots & \vdots  \\
-        a_{n1} & a_{n2} & \dots  & a_{nn}
+      \begin{pmatrix}
+        a_{11} & a_{12} & \ldots  & a_{1n}  \\
+        a_{21} & a_{22} & \ldots  & a_{2n}  \\
+        \vdots & \vdots & \ddots & \vdots  \\
+        a_{n1} & a_{n2} & \ldots  & a_{nn}
+      \end{pmatrix}
     \end{equation}
     \begin{equation}
         x_{1}  \\
