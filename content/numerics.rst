@@ -101,6 +101,8 @@ sections.  Choice of schemes are set in the
 
 
 Temporal schemes
+----------------
+
 
 OpenFOAM includes a variety of schemes to integrate fields with respect to time:
 
@@ -132,6 +134,7 @@ Available **<time scheme>** include
 
 
 Spatial schemes
+---------------
 
 At their core, spatial schemes rely heavily on interpolation schemes to transform cell-based quantities to cell faces, in combination with Gauss Theorem to convert volume integrals to surface integrals.
 
