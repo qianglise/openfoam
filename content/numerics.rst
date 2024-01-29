@@ -58,21 +58,24 @@ This equation is discretised to produce a system of algebraic equations of the f
         \vdots & \vdots & \ddots & \vdots  \\
         a_{n1} & a_{n2} & \ldots  & a_{nn}
       \end{pmatrix}
-    \end{equation}
-    \begin{equation}
-        x_{1}  \\
+=
+\begin{pmatrix}
+x_{1}  \\
         x_{2}  \\
         \vdots \\
         x_{n}
-    \end{equation}
-    
-    \begin{equation}
-        b_{1}  \\
+\end{pmatrix}
+
+\cdot
+
+\begin{pmatrix}
+    b_{1}  \\
         b_{2}  \\
         \vdots \\
         b_{n}
+\end{pmatrix}
     \end{equation}
-
+ 
 
 or more concisely:
 
