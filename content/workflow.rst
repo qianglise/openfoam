@@ -166,8 +166,26 @@ The Expressions functionality is a re-implementation of swak4Foam created by Ber
 The following sections describe how to write the expressions and provide an overview of the range of functionality.
 
 
+swak4Foam
+• SWiss Army Knife for Foam.
+• Its primary feature is the power of mathematical
+expressions, no C++ required, e.g.:
+• 10*(1+0.5*sin(500*time()))
+• 15*pow(x,2)+20*pow(y,2)
+• Pre-processing utilities
+• Boundary conditions
+• Function Objects (co-processing)
 
+Why was swak4Foam created:
+• OpenFOAM is a CFD toolbox
+• It’s coded in C++
+• Whenever a feature is missing, it’s expected the user to
+code it in C++
 
+swak4Foam aims to bypass the requirement to code in C++,
+by empowering the user with capabilities that don’t exist
+yet in OpenFOAM, without the need to rely on coding in
+C++.
 
 
 Summary
