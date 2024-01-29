@@ -258,9 +258,9 @@ Options
 
 
 
-
-
 OpenFOAM executables
+--------------------
+
 Unlike many other software, OpenFOAM does not have a unique executable. 
 For every solver, mesh generation etc. there is a separate executable! 
 You should run the right executable according to the solver you are
