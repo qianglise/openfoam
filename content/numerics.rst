@@ -59,8 +59,6 @@ This equation is discretised to produce a system of algebraic equations of the f
         a_{n1} & a_{n2} & \ldots  & a_{nn}
       \end{pmatrix}
 
-= \\
-
 \begin{pmatrix}
 x_{1}  \\
         x_{2}  \\
@@ -68,7 +66,7 @@ x_{1}  \\
         x_{n}
 \end{pmatrix}
 
-\cdot \\
+
 
 \begin{pmatrix}
     b_{1}  \\
