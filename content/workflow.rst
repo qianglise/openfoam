@@ -155,37 +155,15 @@ The main basic entry types include:
 Expressions
 -----------
 
-The Expressions syntax enables users to define custom expressions for use in a variety of scenarios, including:
+The Expressions functionality is a re-implementation of swak4Foam(SWiss Army Knife for Foam) created by Bernhard Gschaider and it was introduced since version v1912.
+The Expressions syntax enables users to define custom expressions for use in a variety of scenarios that don’t exist yet in OpenFOAM, without the need to rely on coding in
+C++, including:
 
+    - pre-processing utilities
     - input dictionaries
     - boundary conditions
+    - function objects (co-processing)
     - utilities, e.g. setting field values
-
-The Expressions functionality is a re-implementation of swak4Foam created by Bernhard Gschaider and it was introduced since version v1912.
-
-The following sections describe how to write the expressions and provide an overview of the range of functionality.
-
-
-swak4Foam
-• SWiss Army Knife for Foam.
-• Its primary feature is the power of mathematical
-expressions, no C++ required, e.g.:
-• 10*(1+0.5*sin(500*time()))
-• 15*pow(x,2)+20*pow(y,2)
-• Pre-processing utilities
-• Boundary conditions
-• Function Objects (co-processing)
-
-Why was swak4Foam created:
-• OpenFOAM is a CFD toolbox
-• It’s coded in C++
-• Whenever a feature is missing, it’s expected the user to
-code it in C++
-
-swak4Foam aims to bypass the requirement to code in C++,
-by empowering the user with capabilities that don’t exist
-yet in OpenFOAM, without the need to rely on coding in
-C++.
 
 
 Summary
