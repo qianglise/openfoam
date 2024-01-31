@@ -97,6 +97,8 @@ API:
 Input types
 -----------
 
+Dictionaries
+~~~~~~~~~~~~
 
 OpenFOAM input dictionaries are designed to be human-readable ASCII text files, consisting of collections of keyword-value entries bounded by curly braces {}, e.g.
 
@@ -153,7 +155,7 @@ The main basic entry types include:
 
 
 Expressions
------------
+~~~~~~~~~~~
 
 The Expressions functionality is a re-implementation of swak4Foam(SWiss Army Knife for Foam) created by Bernhard Gschaider and it was introduced since version v1912.
 The Expressions syntax enables users to define custom expressions for use in a variety of scenarios that don’t exist yet in OpenFOAM, without the need to rely on coding in
