@@ -47,6 +47,10 @@ such that:
     = \int_V \nabla \cdot \left(\Gamma \nabla \phi \right) dV
     + \int_V S_\phi dV
 
+Next step is to transform the volume integral to surface integral by using Gauss Thereom.
+
+Up to this point, the integral form is valid for an arbitrary volume, and for each volume, the integral equations are valid.
+In principle, as long as we are consistent in how we compute the surface integrals, it is conservative. 
 
 This equation is discretised to produce a system of algebraic equations of the form
 
