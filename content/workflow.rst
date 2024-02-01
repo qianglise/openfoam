@@ -21,6 +21,70 @@ Workflow
 Case structure
 --------------
 
+- There are usually three subfolders (**0**, **constant** and **system**) for all OpenFOAM cases
+
+.. code:: bash
+
+ $ ls
+ 0 constant system
+
+The folder **0** includes the initial and boundary conditions for the flow quantities.
+In **constant/polyMesh** the computational mesh is stored.
+The files **transportProperties** and **turbulenceProperties** in **constant** are used to define the material properties
+of the fluid and the turbulence modelling approach, respectively.
+Additional data like STL files is also stored in **constant**.
+The **system** folder includes the various dictionaries (Dict) that control different aspects of the simulation.
+For example, we can modify the following files
+
+- **system/blockMeshDict**: to control the block-structrued mesher **blockMesh**.
+- **system/snappyHexMeshDict**: to set the parameters for snappyHexMesh, another mesher shipped with **OpenFOAM**.
+- **system/decomposeParDict** : to set the parameters of the domain decomposition used for running **OpenFOAM** in parallel.
+
+.. code:: bash
+
+ numberOfSubdomains 16; // Set the number of used processes (16)?
+ method scotch; // Set the partition method (scotch) ?
+
+- **system/controlDict**: multiple simulation control parameters.
+
+.. code:: bash
+
+ application simpleFoam; // Set the OpenFOAM solver (simpleFoam)
+ ...
+ endTime 500; // Set the time steps (500 steps)
+ ...
+ writeInterval 100; // Write results in files (per 100 steps)
+ ...
+
+- **system/fvSolution**: iterative solver and pressure-velocity coupling parameters.
+
+- **system/fvSchemes**: selection of numerical schemes.
+
+A typical workflow for an OpenFOAM case is schematically shown below
+
+.. code:: bash
+
+ Start
+   |
+   v
+ blockMesh // Create a block mesh (set by system/blockMeshDict)
+   |
+   v
+ decomposePar // Divide into submeshes (set by system/decomposeParDict)
+   |
+   v
+ snappyHexMesh // create complex mesh (set by system/snappyHexMeshDict)
+   |
+   V
+ simpleFoam // run application(OpenFOAM solver) (set by system/controlDict)
+   |
+   V
+ reconstructPar // Stitch together the solutions from  the submeshes
+
+ Of course, this can vary depending on what mesher you use, wether you run in parallel,
+ etc. There may also be additional pre- or post-processing steps.
+
+
 To setup a case, you need to have at least 3 directories in your case directory, namely system, constant and <initial time directory> (e.g. 0).
 
 OpenFOAM cases are configured using plain text input files located across the three directories, in each input file, OpenFOAM uses a plain text dictionary format with keywords and values
