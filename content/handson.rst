@@ -18,7 +18,7 @@ Case Study
    - 0 min exercises
 
 
-Case: Lid-driven cavity flow
+Lid-driven cavity flow
 ----------------------------
 
 This case uses OpenFOAM to calculate the incompressible flow in a two-dimensional square domain, see the Figure blow
@@ -368,8 +368,8 @@ You can now open this file with regular Paraview, and not *paraFoam*.
 
 
 
-MotorBike Case
---------------
+MotorBike
+---------
 
 This case uses OpenFOAM to calculate the steady flow around a motorbike and rider using RAS turbulence modelling with wall functions.
 The initialization of flow velocity is to 20 m/s.
