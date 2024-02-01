@@ -15,9 +15,6 @@ OpenFOAM training workshop
    workflow
    mesh
    handson
-   1.02_openfoam-handson
-   2.01_openfoam-workflow
-   2.02_openfoam-handson
 
 
 .. toctree::
