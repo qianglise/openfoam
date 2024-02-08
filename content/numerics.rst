@@ -43,17 +43,18 @@ such that:
 
 .. math::
       \int_V \frac{\partial \rho \phi }{\partial t}  dV
-    + \int_V  \nabla \cdot \left(\rho \phi \vec{u} \right) dV
+    + \int_V \nabla \cdot \left(\rho \phi \vec{u} \right) dV
     = \int_V \nabla \cdot \left(\Gamma \nabla \phi \right) dV
     + \int_V S_\phi dV
 
 Next step is to transform the volume integral to surface integral by using Gauss Thereom.
 
 .. math::
-      \int_V \frac{\partial \rho \phi }{\partial t}  dV
-    + \int_V  \nabla \cdot \left(\rho \phi \vec{u} \right) dV
-    = \int_V \nabla \cdot \left(\Gamma \nabla \phi \right) dV
-    + \int_V S_\phi dV
+      \int_V \frac{\partial \rho \phi }{\partial t}  \mathrm{d} V
+    + \oint_S \left(\rho \phi \mathbf{u \cdot n} \right) \mathrm{d} S  
+    = \oint_S \Gamma  (\mathbf{ \nabla \phi \cdot n})  \mathrm{d} V
+    + \int_V S_\phi \mathrm{d} V
+
 
 Up to this point, the integral form is valid for an arbitrary volume, and for each volume, the integral equations are valid.
 In principle, as long as we are consistent in how we compute the surface integrals, it is conservative. 
@@ -63,12 +64,18 @@ Then we split the volume integrals across the volume faces/surfaces, note that
  - each volume is assumed to be a convex polyhedron
  - the face values are approximated at the face centres with a 2nd order accurary
 
+.. math::
+      \int_V \frac{\partial \rho \phi }{\partial t}  \mathrm{d} V
+    + \sum_{faces} \left(\rho_f \phi_f \mathbf{u_f \cdot n_f} \right) S_f  
+    = \sum_{faces} \Gamma  (\mathbf{ \nabla \phi \cdot n})  \mathrm{d} V
+    + \int_V S_\phi \mathrm{d} V
+
 
 .. math::
       \int_V \frac{\partial \rho \phi }{\partial t}  \mathrm{d} V
     + \oint\limits_{S(V)} \left(\rho \phi \mathbf{u \cdot n} \right) \mathrm{d} S  
     = \oint_S \Gamma  (\mathbf{ \nabla \phi \cdot n})  \mathrm{d} V
-    + \int_V S_\phi dV
+    + \int_V S_\phi \mathrm{d} V
 
 
 Until now, a semi-discretised system of equations is obtained
