@@ -66,8 +66,8 @@ Then we split the volume integrals across the volume faces/surfaces, note that
 
 .. math::
       \int_V \frac{\partial \rho \phi }{\partial t}  \mathrm{d} V
-    + \oint\limits_{S(V)} \nabla \cdot \left(\rho \phi \mathbf{u} \right) \mathrm{d} S    \int_V  \nabla \cdot \left(\rho \phi \vec{u} \right) dV
-    = \int_V \nabla \cdot \left(\Gamma \nabla \phi \right) dV
+    + \oint\limits_{S(V)} \left(\rho \phi \mathbf{u \cdot n} \right) \mathrm{d} S  
+    = \oint_S \Gamma  (\mathbf{ \nabla \phi \cdot n})  \mathrm{d} V
     + \int_V S_\phi dV
 
 
