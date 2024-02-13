@@ -21,13 +21,6 @@ Workflow
 Case structure
 --------------
 
-- There are usually three subfolders (**0**, **constant** and **system**) for all OpenFOAM cases
-
-.. code:: bash
-
- $ ls
- 0 constant system
-
 The folder **0** includes the initial and boundary conditions for the flow quantities.
 In **constant/polyMesh** the computational mesh is stored.
 The files **transportProperties** and **turbulenceProperties** in **constant** are used to define the material properties
@@ -85,24 +78,32 @@ A typical workflow for an OpenFOAM case is schematically shown below
  etc. There may also be additional pre- or post-processing steps.
 
 
-To setup a case, you need to have at least 3 directories in your case directory, namely system, constant and <initial time directory> (e.g. 0).
+To setup a case, you need to have at least 3 directories in your case directory, namely **system**, **constant** and **<initial time directory>** (normally **0**).
+
+.. code:: bash
+
+ $ ls
+ 0 constant system
+
 
 OpenFOAM cases are configured using plain text input files located across the three directories, in each input file, OpenFOAM uses a plain text dictionary format with keywords and values
 
-system: contains input files for grid generators and solvers
+**system**: contains input files for grid generators and solvers
 
-    - controlDict
-    - fvSchemes
-    - fvSolution
-    - fvOptions
+    - controlDict: the main simulation control parameters. This includes, e.g. timing information, write format, and optional libraries that can be loaded at run time
+    - fvSchemes: the selection of the numerical schemes
+    - fvSolution: the iterative solver and pressure-velocity coupling parameters
+    - fvOptions: user-specified finite volume options. Many OpenFOAM applications contain equation systems that can be manipulated at run time. These provide, e.g. additional source/sink terms, or enforce constraints.
     <system dictionaries>
 
-constant: Contains values that are constant during simulation like transport properties of the fluid (viscosity models) and mesh coordinates
+**constant**: Contains values that are constant during simulation like transport properties of the fluid (viscosity models) and mesh coordinates
 
-    - polyMesh
-    <constant dictionaries>
+    - polyMesh: where the computational mesh is stored
+    - transportProperties: the material properties of the fluid
+    - turbulenceProperties: the turbulence modelling 
+    - ...
 
-<initial time directory>: contains initial fields of the flow e.g. velocity, pressure etc. and boundary conditions
+**<initial time directory>**: contains initial fields of the flow e.g. velocity, pressure etc. and boundary conditions
 
     <field files>
 
@@ -113,48 +114,177 @@ Additional directories can be generated, depending on user cases, most common on
     data conversion, e.g. VTK
 
 
-controlDict
-~~~~~~~~~~~
 
-The controlDict dictionary is used to specify the main case controls. This includes, e.g. timing information, write format, and optional libraries that can be loaded at run time.
+An few examples of the dictionaries are shown below:
 
-An example dictionary is shown below:
+.. tabs::
+
+   .. tab:: controlDict
+
+      .. code-block:: txt
+
+            /*--------------------------------*- C++ -*----------------------------------*\
+            | =========                 |                                                 |
+            | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+            |  \\    /   O peration     | Version:  v2306                                 |
+            |   \\  /    A nd           | Website:  www.openfoam.com                      |
+            |    \\/     M anipulation  |                                                 |
+            \*---------------------------------------------------------------------------*/
+            FoamFile
+            {
+                version     2.0;
+                format      ascii;
+                class       dictionary;
+                object      controlDict;
+            }
+            // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+            
+            application     icoFoam;
+            
+            startFrom       startTime;
+            
+            startTime       0;
+            
+            stopAt          endTime;
+            
+            endTime         0.5;
+            
+            deltaT          0.005;
+            
+            writeControl    timeStep;
+            
+            writeInterval   20;
+            
+            purgeWrite      0;
+            
+            writeFormat     ascii;
+            
+            writePrecision  6;
+            
+            writeCompression off;
+            
+            timeFormat      general;
+            
+            timePrecision   6;
+            
+            runTimeModifiable true;
+            
+            
+            // ************************************************************************* //
 
 
 
-fvSchemes
-~~~~~~~~~
+   .. tab:: fvSchemes
 
-An example dictionary is shown below:
+      .. code-block:: txt
 
-fvSolution
-~~~~~~~~~~
+            /*--------------------------------*- C++ -*----------------------------------*\
+            | =========                 |                                                 |
+            | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+            |  \\    /   O peration     | Version:  v2306                                 |
+            |   \\  /    A nd           | Website:  www.openfoam.com                      |
+            |    \\/     M anipulation  |                                                 |
+            \*---------------------------------------------------------------------------*/
+            FoamFile
+            {
+                version     2.0;
+                format      ascii;
+                class       dictionary;
+                object      fvSchemes;
+            }
+            // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+            
+            ddtSchemes
+            {
+                default         Euler;
+            }
+            
+            gradSchemes
+            {
+                default         Gauss linear;
+                grad(p)         Gauss linear;
+            }
+            
+            divSchemes
+            {
+                default         none;
+                div(phi,U)      Gauss linear;
+            }
+            
+            laplacianSchemes
+            {
+                default         Gauss linear orthogonal;
+            }
+            
+            interpolationSchemes
+            {
+                default         linear;
+            }
+            
+            snGradSchemes
+            {
+                default         orthogonal;
+            }
+            
+            
+            // ************************************************************************* //
 
-An example dictionary is shown below:
 
-fvOptions
-~~~~~~~~~
+   .. tab:: fvSolution
 
-Many OpenFOAM applications contain equation systems that can be manipulated at run time via user-specified finite volume options, given by the shorthand fvOptions. These provide, e.g. additional source/sink terms, or enforce constraints.
+      .. code-block:: txt
 
-Options include:
-
-    Sources
-    Corrections
-    Constraints
-
-
-Further information
-
-Source code:
-
-    $FOAM_SRC/fvOptions
-
-API:
-
-    grpFvOptions
-
-
+            /*--------------------------------*- C++ -*----------------------------------*\
+            | =========                 |                                                 |
+            | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+            |  \\    /   O peration     | Version:  v2306                                 |
+            |   \\  /    A nd           | Website:  www.openfoam.com                      |
+            |    \\/     M anipulation  |                                                 |
+            \*---------------------------------------------------------------------------*/
+            FoamFile
+            {
+                version     2.0;
+                format      ascii;
+                class       dictionary;
+                object      fvSolution;
+            }
+            // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+            
+            solvers
+            {
+                p
+                {
+                    solver          PCG;
+                    preconditioner  DIC;
+                    tolerance       1e-06;
+                    relTol          0.05;
+                }
+            
+                pFinal
+                {
+                    $p;
+                    relTol          0;
+                }
+            
+                U
+                {
+                    solver          smoothSolver;
+                    smoother        symGaussSeidel;
+                    tolerance       1e-05;
+                    relTol          0;
+                }
+            }
+            
+            PISO
+            {
+                nCorrectors     2;
+                nNonOrthogonalCorrectors 0;
+                pRefCell        0;
+                pRefValue       0;
+            }
+            
+            
+            // ************************************************************************* //
 
 
 
