@@ -296,15 +296,21 @@ Dictionaries
 
 OpenFOAM input dictionaries are designed to be human-readable ASCII text files, consisting of collections of keyword-value entries bounded by curly braces {}, e.g.
 
-dictionary_name
-{
-    labelType       1;
-    scalarType      1.0;
-    vectorType      (0 0 0);
-    wordType        word;
-    stringType      "string";
-    ...
-}
+.. tabs::
+
+   .. tab:: dictionary
+
+      .. code-block:: txt
+
+            dictionary_name
+            {
+                labelType       1;
+                scalarType      1.0;
+                vectorType      (0 0 0);
+                wordType        word;
+                stringType      "string";
+                ...
+            }
 
 
 The main basic entry types include:
