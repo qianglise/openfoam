@@ -184,7 +184,7 @@ Temporal schemes
 ----------------
 
 
-OpenFOAM includes a variety of schemes to integrate fields with respect to time:
+Temporal schemes define how a field is integrated as a function of time. OpenFOAM includes a variety of schemes to integrate fields with respect to time:
 
 Time scheme properties are input in the fvSchemes file under the ddtSchemes sub-dictionary using the syntax:
 
@@ -212,6 +212,12 @@ Available **<time scheme>** include
     - Steady state time scheme
 
 
+When choosing temporal scheme, here are a few things to consider:
+
+ - Explicit or implicit: the latter means we have to solve a linear system at each time-step.
+ - Order of accuracy
+ - Numerical stability, and its implications for the time-step
+
 
 Spatial schemes
 ---------------
@@ -223,11 +229,18 @@ Gradient
 
 Gradient schemes are specified in the fvSchemes file under the gradSchemes sub-dictionary using the syntax:
 
-gradSchemes
-{
-    default         none;
-    grad(p)         <optional limiter> <gradient scheme> <interpolation scheme>;
-}
+.. tabs::
+
+   .. tab:: gradSchemes
+
+      .. code-block:: txt
+
+            gradSchemes
+            {
+                default         none;
+                grad(p)         <optional limiter> <gradient scheme> <interpolation scheme>;
+            }
+
 
 Gradient schemes
 
@@ -256,22 +269,29 @@ Divergence
 
 Divergence schemes are specified in the fvSchemes file under the divSchemes sub-dictionary using the general syntax:
 
-divSchemes
-{
-    default         none;
-    div(Q)          Gauss <interpolation scheme>;
-}
+.. tabs::
 
-A typical use is for convection schemes, which transport a property,
-under the influence of a velocity field
+   .. tab:: Time scheme properties
 
-, specified using:
+      .. code-block:: txt
 
-divSchemes
-{
-    default         none;
-    div(phi,Q)      Gauss <interpolation scheme>;
-}
+            divSchemes
+            {
+                default         none;
+                div(Q)          Gauss <interpolation scheme>;
+            }
+
+
+A typical use is for convection schemes, which transport a property under the influence of a velocity field specified using:
+
+.. tabs::
+   .. tab:: divSchemes
+      .. code-block:: txt
+            divSchemes
+            {
+                default         none;
+                div(phi,Q)      Gauss <interpolation scheme>;
+            }
 
 The phi keyword is typically used to represent the flux (flow) across cell faces, i.e.
 https://doc.openfoam.com/2312/tools/processing/numerics/schemes/divergence/
