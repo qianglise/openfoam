@@ -157,7 +157,27 @@ Interpolation schemes are specified in the fvSchemes file under the interpolatio
 A wide variety of interpolation schemes are available, ranging from those that are based solely on geometry, and others, e.g. convection schemes that are functions of the local flow:
 
    - Linear scheme : The most obvious option is linear interpolation, 2nd order accurate.  However, for convective fluxes it introduces oscillations
-   - Convection scheme: many options for interpolating the  convective flux exist. Often the most important numerical choice in the simulation
+   - Convection scheme: many options for interpolating the  convective flux exist. Often it is the most important numerical choice in the simulation. Many of the convection schemes available in OpenFOAM are based on the TVD and NVD: 
+
+        - NVD/TVD convection schemes::
+         
+            - Limited linear divergence scheme
+            - Linear divergence scheme
+            - Linear-upwind divergence scheme
+            - MUSCL divergence scheme
+            - Mid-point divergence scheme
+            - Minmod divergence scheme
+            - QUICK divergence scheme
+            - UMIST divergence scheme
+            - Upwind divergence scheme
+            - Van Leer divergence scheme
+         
+        - Non-NVD/TVD convection schemes::
+
+            - Courant number blended divergence scheme
+            - DES hybrid divergence scheme
+            - Filtered Linear (2) divergence scheme
+            - LUST divergence scheme
 
 
 Temporal schemes
