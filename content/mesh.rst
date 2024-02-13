@@ -18,11 +18,9 @@ Mesh
    - 0 min exercises
 
 
-Meshing
--------
 
 Mesh generation
-~~~~~~~~~~~~~~~
+---------------
 
 There are a couple of mesher available:
 
@@ -117,7 +115,7 @@ Run snappyHexMesh –overwrite to write only the final mesh directly to constant
 
 
 Mesh manipulation
-~~~~~~~~~~~~~~~~~
+-----------------
 
 The following tools are useful when manipulating the mesh, e.g. scaling the geometry, identifying patches and creating sets and zones for physical models and post-processing.
 
@@ -126,10 +124,9 @@ The following tools are useful when manipulating the mesh, e.g. scaling the geom
 
 
 Mesh conversion
-~~~~~~~~~~~~~~~
+---------------
 
-
-Conversion
+Quite a few tools exist for mesh conversion:
 
     ccmToFoam
     fireToFoam
@@ -139,12 +136,8 @@ Conversion
   
 
 Conclusions
-• OpenFOAM has several meshing tools, suitable for both simple
-and complex geometries.
+• OpenFOAM has several meshing tools, suitable for both simple and complex geometries.
 • It’s possible to do a lot with snappy, including industrial flows.
-• That being said, it seems to take a lot of parameter tweeking and
-one has to know the tool well.
-• I have heard from many that cfMesh is less painful to work with.
-Try that as well.
-• Generally, speciallized commercial meshers are still quite a bit
-better in my opinion.
+• That being said, it seems to take a lot of parameter tweeking and one has to know the tool well.
+• I have heard from many that cfMesh is less painful to work with. Try that as well.
+• Generally, speciallized commercial meshers are still a bit better.
