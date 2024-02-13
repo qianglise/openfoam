@@ -69,7 +69,7 @@ Boundary types are listed here::
  - "cyclic", "cyclicAMI": for periodic boundary conditions. Come in pairs
  - "symmetry": symmetry boundary
 
-Boundary types vs boundary conditions::
+Boundary types vs boundary conditions:
 
  - Boundary conditions for fields are set in the **0** folder!
  - But some boundary types essentially define the condition, e.g. cyclic.
