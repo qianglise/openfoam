@@ -139,25 +139,25 @@ sections.  Choice of schemes are set in the
 Interpolation schemes
 ---------------------
 
-Interpolation schemes are specified in the fvSchemesfile under the interpolationSchemes sub-dictionary using the syntax:
+Interpolation schemes are specified in the fvSchemes file under the interpolationSchemes sub-dictionary using the syntax:
 
-interpolationSchemes
-{
-    default         none;
-    <equation term> <interpolation scheme>;
-}
+.. tabs::
+
+   .. tab:: InterpolationSchemes
+
+      .. code-block:: txt
+
+         interpolationSchemes
+         {
+             default         none;
+             <equation term> <interpolation scheme>;
+         }
 
 
-A wide variety of interpolation schemes are available, ranging from those that are based solely on geometry, and others, e.g. convection schemes that are functions of the local flow.
+A wide variety of interpolation schemes are available, ranging from those that are based solely on geometry, and others, e.g. convection schemes that are functions of the local flow:
 
-General
-
-    Linear: The most obvious option is linear interpolation, 2 nd order accurate.  However, for convective fluxes it introduces oscillations
-    Point linear
-
-Convection
-
-    See divergence schemes, many options for interpolating the  convective flux exist. Often the most important numerical choice in the simulation
+   - Linear scheme : The most obvious option is linear interpolation, 2nd order accurate.  However, for convective fluxes it introduces oscillations
+   - Convection scheme: many options for interpolating the  convective flux exist. Often the most important numerical choice in the simulation
 
 
 Temporal schemes
