@@ -35,14 +35,14 @@ blockMesh
 
 blockMesh is a structured hexahedral mesh generator:
 
-- Key features::
+- Key features:
 
    - structured hex mesh
    - built using blocks
    - supports cell size grading
    - supports curved block edges
 
-- Constraints::
+- Constraints:
 
    - requires consistent block-to-block connectivity
    - ordering of points is important
@@ -51,7 +51,7 @@ blockMesh is a structured hexahedral mesh generator:
 It is well suited to simple geometries that can be described by a few blocks, but challenging to apply to cases with a large number of blocks due to book-keeping requirements, i.e. the need to manage point connectivity and ordering.
 
 The utility is controlled using a ``blockMeshDict`` dictionary, located in the case **system** directory. 
-It manually define everything: vertices, blocks, curved edges, boundaries and is split into the following sections::
+It manually define everything: vertices, blocks, curved edges, boundaries and is split into the following sections:
 
    - points
    - edges
@@ -61,7 +61,7 @@ It manually define everything: vertices, blocks, curved edges, boundaries and is
 An example of the ``blockMeshDict`` dictionary is provided below:
 
 
-Boundary types are listed here::
+Boundary types are listed here:
 
  - "patch": generic type used for most boundary boundaries
  - "wall": for walls
@@ -103,7 +103,7 @@ Meshing controls are set in the ``snappyHexMeshDict`` located in the case **syst
 The overall meshing process is summarised by the figure below:
 https://doc.openfoam.com/2312/tools/pre-processing/mesh/generation/snappyhexmesh/figures/snappyHexMesh-overview-small.png
 
-This includes::
+This includes:
 
    - Put the stl of the geometry to **constant/triSruface**
    - Create a ``blockMeshDict`` with one block of cubic cells. This will define the largest cell size.
@@ -114,7 +114,7 @@ This includes::
    - Running ``snappyHexMesh`` in serial or parallel
 
 
-Note::
+Note:
 
 - Running ``snappyHexMesh`` will produce a separate directory for each step of the meshing process. The mesh in **constant** folder will be intact.
 - Running ``snappyHexMesh –overwrite`` to write only the final mesh directly to **constant** folder
