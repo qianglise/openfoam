@@ -20,10 +20,10 @@ Numerics
 Numerical schemes
 -----------------
 
-OpenFOAM includes a wide range of solution and scheme controls, specified via dictionary files in the case system sub-directory. These are described by:
+OpenFOAM includes a wide range of solution and scheme controls, specified via dictionary files in the case **system** sub-directory. These are described by:
 
-    - Numerical schemes: Transforming partial differential equations to a linear system of equations using the Finite Volume Method. The treatment of each term in the system of equations is specified in the fvSchemes dictionary. This enables fine-grain control of e.g. temporal, gradient, divergence and interpolation schemes. Additional run-time selectable physical modelling and general finite terms are prescribed in the fvOptions dictionary, targeting e.g. acoustics, heat transfer, momentum sources, multi-region coupling, linearised sources/sinks and many more
-    - Solution methods: Case solution parameters are specified in the fvSolution dictionary. These include choice of linear equation solver per field variable, algorithm controls e.g. number of inner and outer iterations and under-relaxation.
+    - Numerical schemes: Transforming partial differential equations to a linear system of equations using the Finite Volume Method. The treatment of each term in the system of equations is specified in the ``fvSchemes`` dictionary. This enables fine-grain control of e.g. temporal, gradient, divergence and interpolation schemes. Additional run-time selectable physical modelling and general finite terms are prescribed in the ``fvOptions`` dictionary, targeting e.g. acoustics, heat transfer, momentum sources, multi-region coupling, linearised sources/sinks and many more
+    - Solution methods: Case solution parameters are specified in the ``fvSolution`` dictionary. These include choice of linear equation solver per field variable, algorithm controls e.g. number of inner and outer iterations and under-relaxation.
 
 
 
@@ -75,7 +75,7 @@ Then we split the volume integrals across the volume faces/surfaces, note that
 Interpolation schemes
 ---------------------
 
-Interpolation schemes are specified in the fvSchemes file under the interpolationSchemes sub-dictionary using the syntax:
+Interpolation schemes are specified in the ``fvSchemes`` file under the interpolationSchemes sub-dictionary using the syntax:
 
 .. tabs::
 
@@ -92,8 +92,8 @@ Interpolation schemes are specified in the fvSchemes file under the interpolatio
 
 A wide variety of interpolation schemes are available, ranging from those that are based solely on geometry, and others, e.g. convection schemes that are functions of the local flow:
 
-   - Linear scheme : The most obvious option is linear interpolation, 2nd order accurate.  However, for convective fluxes it introduces oscillations
-   - Convection scheme: many options for interpolating the  convective flux exist. Often it is the most important numerical choice in the simulation. Many of the convection schemes available in OpenFOAM are based on the TVD and NVD: 
+   - Linear scheme: The most obvious option is linear interpolation, 2nd order accurate.  However, for convective fluxes it introduces oscillations
+   - Convection scheme: Many options for interpolating the  convective flux exist. Often it is the most important numerical choice in the simulation. Many of the convection schemes available in OpenFOAM are based on the TVD and NVD: 
 
         - NVD/TVD convection schemes::
          
@@ -117,14 +117,10 @@ A wide variety of interpolation schemes are available, ranging from those that a
 
 
 
-Until now, a semi-discretised system of equations is obtained
-
 Temporal schemes
 ----------------
 
-Temporal schemes define how a field is integrated as a function of time. OpenFOAM includes a variety of schemes to integrate fields with respect to time:
-
-Time scheme properties are input in the fvSchemes file under the ddtSchemes sub-dictionary using the syntax:
+Now it is the time to choose a time integration scheme. Temporal schemes define how a field is integrated as a function of time. OpenFOAM includes a variety of schemes to integrate fields with respect to time. Time scheme properties are input in the ``fvSchemes`` file under the ``ddtSchemes`` sub-dictionary using the syntax:
 
 .. tabs::
 
