@@ -33,39 +33,47 @@ There are a couple of mesher available:
 blockMesh
 +++++++++
 
-blockMesh is a structured hexahedral mesh generator.
+blockMesh is a structured hexahedral mesh generator:
 
-Key features:
+- Key features::
 
-    structured hex mesh
-    built using blocks
-    supports cell size grading
-    supports curved block edges
+   - structured hex mesh
+   - built using blocks
+   - supports cell size grading
+   - supports curved block edges
 
-Constraints:
+- Constraints::
 
-    requires consistent block-to-block connectivity
-    ordering of points is important
-
-Well suited to simple geometries that can be described by a few blocks, but challenging to apply to cases with a large number of blocks due to book-keeping requirements, i.e. the need to manage point connectivity and ordering.
-
-Command line usage:
-
-blockMesh [OPTIONS]
-
-The utility is controlled using a blockMeshDict dictionary, located in the case system directory, split into the following sections:
-
-    points
-    edges
-    blocks
-    patches
+   - requires consistent block-to-block connectivity
+   - ordering of points is important
 
 
-Mesh fully defined in one dictionary: blockMeshDict. Lives in system.
-Manually define everything: vertices, blocks, curved edges, boundaries.
+It is well suited to simple geometries that can be described by a few blocks, but challenging to apply to cases with a large number of blocks due to book-keeping requirements, i.e. the need to manage point connectivity and ordering.
 
-an example dictionary file ? 
-e,g, file:///home/qiang/Downloads/day2_meshing.pdf
+The utility is controlled using a ``blockMeshDict`` dictionary, located in the case **system** directory. 
+It manually define everything: vertices, blocks, curved edges, boundaries and is split into the following sections::
+
+   - points
+   - edges
+   - blocks
+   - patches
+
+An example of the ``blockMeshDict`` dictionary is provided below:
+
+
+Boundary types are listed here::
+
+ - "patch": generic type used for most boundary boundaries
+ - "wall": for walls
+ - "empty": for a 2D case, defining the side boundaries parallel to the 2D plane in which the solution is obtained
+ - "cyclic", "cyclicAMI": for periodic boundary conditions. Come in pairs
+ - "symmetry": symmetry boundary
+
+Boundary types vs boundary conditions::
+
+ - Boundary conditions for fields are set in the **0** folder!
+ - But some boundary types essentially define the condition, e.g. cyclic.
+ - In this case, the conditions in the **0** folder must match the boundary type, e.g. cyclic boundary condition for the cyclic boundary type. Same with "empty"
 
 
 snappyHexMesh
@@ -73,71 +81,70 @@ snappyHexMesh
 
 snappyHexMesh is a fully parallel, split hex, mesh generator that guarantees a minimum mesh quality. Controlled using OpenFOAM dictionaries, it is particularly well suited to batch driven operation.
 
-Key features:
+Some of the key features are listed here::
 
-    starts from any pure hex mesh (structured or unstructured)
-    reads geometry in triangulated formats, e.g. in stl, obj, vtk
-    no limit on the number of input surfaces
-    can use simple analytically-defined geometry, e.g. box, sphere, cone
-    generates prismatic layers
-    scales well when meshing in parallel
-    can work with dirty surfaces, i.e. non-watertight surfaces
+   - starts from any pure hex mesh (structured or unstructured)
+   - reads geometry in triangulated formats, e.g. in stl, obj, vtk
+   - no limit on the number of input surfaces
+   - can use simple analytically-defined geometry, e.g. box, sphere, cone
+   - generates prismatic layers
+   - scales well when meshing in parallel
+   - can work with dirty surfaces, i.e. non-watertight surfaces
 
-Meshing controls are set in the snappyHexMeshDict located in the case system directory. This has five main sections, described by the following:
+Meshing controls are set in the ``snappyHexMeshDict`` located in the case **system** directory, which contains the following sections:
 
-    Geometry: specification of the input surfaces
-    Castellation: starting from any pure hex mesh, refine and optionally load balance when running in parallel. The refinement is specified both according to surfaces, volumes and gaps
-    Snapping: guaranteed mesh quality whilst morphing to geometric surfaces and features
-    Layers: prismatic layers are inserted by shrinking an existing mesh and creating an infill, subject to the same mesh quality constraints
-    Mesh quality: mesh quality settings enforced during the snapping and layer addition phases
-    Global
-
-
-Creating the mesh is a 3-step process.
-1. Castellation
-2. Snapping
-3. Adding layers
-
+    - Geometry: specification of the input surfaces
+    - Castellation: starting from any pure hex mesh, refine and optionally load balance when running in parallel. The refinement is specified both according to surfaces, volumes and gaps
+    - Snapping: guaranteed mesh quality whilst morphing to geometric surfaces and features
+    - Layers: prismatic layers are inserted by shrinking an existing mesh and creating an infill, subject to the same mesh quality constraints
+    - Mesh quality: mesh quality settings enforced during the snapping and layer addition phases
+    - Global setting
 
 The overall meshing process is summarised by the figure below:
 https://doc.openfoam.com/2312/tools/pre-processing/mesh/generation/snappyhexmesh/figures/snappyHexMesh-overview-small.png
 
-This includes:
+This includes::
 
-    creation of the background mesh using the blockMesh utility (or any other hexahedral mesh generator)
-    extraction of features on the surfaces with surfaceFeatureExtract utility
-    setting up the snappyHexMeshDict input dictionary
-    running snappyHexMesh in serial or parallel
+   - Put the stl of the geometry to **constant/triSruface**
+   - Create a ``blockMeshDict`` with one block of cubic cells. This will define the largest cell size.
+   - Create the background mesh using the ``blockMesh`` utility (or any other hexahedral mesh generator)
+   - Create a ``surfaceFeatureExtractDict`` in **system** and extract the features on the surfaces with ``surfaceFeatureExtract`` utility
+   - Create the background mesh using the ``blockMesh`` utility (or any other hexahedral mesh generator)
+   - Setting up the ``snappyHexMeshDict`` input dictionary
+   - Running ``snappyHexMesh`` in serial or parallel
 
 
-Running snappyHexMesh will produce a separate directory for each step of the meshing process. The mesh in constant will be intact.
-Run snappyHexMesh –overwrite to write only the final mesh directly to constant
+Note::
+
+- Running ``snappyHexMesh`` will produce a separate directory for each step of the meshing process. The mesh in **constant** folder will be intact.
+- Running ``snappyHexMesh –overwrite`` to write only the final mesh directly to **constant** folder
 
 
 Mesh manipulation
 -----------------
 
-The following tools are useful when manipulating the mesh, e.g. scaling the geometry, identifying patches and creating sets and zones for physical models and post-processing.
+The following tools are useful when manipulating the mesh, e.g. scaling the geometry, identifying patches and creating sets and zones for physical models and post-processing::
 
-    surfaceTransformPoints
-    topoSet
+   - surfaceTransformPoints
+   - topoSet
 
 
 Mesh conversion
 ---------------
 
-Quite a few tools exist for mesh conversion:
+Quite a few tools exist for mesh conversion::
 
-    ccmToFoam
-    fireToFoam
-    fluentMeshToFoam, fluent3DMeshToFoam
-    gmshToFoam
-    ansysfoam
+    - ccmToFoam
+    - fireToFoam
+    - fluentMeshToFoam, fluent3DMeshToFoam
+    - gmshToFoam
+    - ansysfoam
   
 
-Conclusions
-• OpenFOAM has several meshing tools, suitable for both simple and complex geometries.
-• It’s possible to do a lot with snappy, including industrial flows.
-• That being said, it seems to take a lot of parameter tweeking and one has to know the tool well.
-• I have heard from many that cfMesh is less painful to work with. Try that as well.
-• Generally, speciallized commercial meshers are still a bit better.
+Summary
+-------
+
+ - OpenFOAM has several meshing tools, suitable for both simple and complex geometries
+ - It’s possible to do a lot with snappyHexMesh, including industrial flows
+ - It requires a lot of parameter tweeking and one has to know the tool well
+ - Generally, speciallized commercial meshers are still a bit better
