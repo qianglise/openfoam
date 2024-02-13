@@ -67,73 +67,9 @@ Then we split the volume integrals across the volume faces/surfaces, note that
 
 .. math::
       \int_V \frac{\partial \rho \phi }{\partial t}  \mathrm{d} V
-    + \sum_{faces} \left(\rho_f \phi_f \mathbf{u_f \cdot n_f} \right) S_f  
-    = \sum_{faces} \Gamma  (\mathbf{ \nabla \phi \cdot n})  \mathrm{d} V
+    + \sum_{Faces} \left(\rho_f \phi_f \mathbf{u_f \cdot n_f} \right) S_f  
+    = \sum_{Faces} \Gamma  (\mathbf{ \nabla \phi \cdot n})  \mathrm{d} V
     + \int_V S_\phi \mathrm{d} V
-
-
-.. math::
-      \int_V \frac{\partial \rho \phi }{\partial t}  \mathrm{d} V
-    + \oint\limits_{S(V)} \left(\rho \phi \mathbf{u \cdot n} \right) \mathrm{d} S  
-    = \oint_S \Gamma  (\mathbf{ \nabla \phi \cdot n})  \mathrm{d} V
-    + \int_V S_\phi \mathrm{d} V
-
-
-Until now, a semi-discretised system of equations is obtained
-
-
-
-This equation is discretised to produce a system of algebraic equations of the form
-
-.. math::
-    \begin{equation}
-      \begin{pmatrix}
-        a_{11} & a_{12} & \ldots  & a_{1n}  \\
-        a_{21} & a_{22} & \ldots  & a_{2n}  \\
-        \vdots & \vdots & \ddots & \vdots  \\
-        a_{n1} & a_{n2} & \ldots  & a_{nn}
-      \end{pmatrix}
-
-\begin{pmatrix}
-x_{1}  \\
-        x_{2}  \\
-        \vdots \\
-        x_{n}
-\end{pmatrix}
-
-
-
-\begin{pmatrix}
-    b_{1}  \\
-        b_{2}  \\
-        \vdots \\
-        b_{n}
-\end{pmatrix}
-    \end{equation}
- 
-
-or more concisely:
-
-.. math::
-    A \vec{x} = \vec{b}
-
-
-where:
-
-:math:`A`
-: coefficient matrix
-
-:math:`\vec{x}`
-: vector of unknowns
-
-:math:`\vec{b}`
-: source vector
-
-The discretisation process employs user selected schemes to build the
-A matrix and \vec{b} vector, described in the following
-sections.  Choice of schemes are set in the
- "fvschemes"  dictionary.
-
 
 
 Interpolation schemes
@@ -180,9 +116,11 @@ A wide variety of interpolation schemes are available, ranging from those that a
             - LUST divergence scheme
 
 
+
+Until now, a semi-discretised system of equations is obtained
+
 Temporal schemes
 ----------------
-
 
 Temporal schemes define how a field is integrated as a function of time. OpenFOAM includes a variety of schemes to integrate fields with respect to time:
 
@@ -199,8 +137,6 @@ Time scheme properties are input in the fvSchemes file under the ddtSchemes sub-
              default         none;
              ddt(Q)          <time scheme>;
          }
-
-
 
 
 Available **<time scheme>** include
