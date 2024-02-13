@@ -33,26 +33,25 @@ OpenFOAM cases are configured using plain text input files located across the th
 
 **system**: contains input files for grid generators and solvers
 
-    - controlDict: the main simulation control parameters. This includes, e.g. timing information, write format, and optional libraries that can be loaded at run time
-    - fvSchemes: the selection of the numerical schemes
-    - fvSolution: the iterative solver and pressure-velocity coupling parameters
-    - fvOptions: user-specified finite volume options. Many OpenFOAM applications contain equation systems that can be manipulated at run time. These provide, e.g. additional source/sink terms, or enforce constraints.
-    - blockMeshDict: to control the block-structrued mesher blockMesh
-    - snappyHexMeshDict: to set the parameters for snappyHexMesh, another mesher shipped with **OpenFOAM**
-    - decomposeParDict : to set the parameters of the domain decomposition used for running **OpenFOAM** in parallel
+    - ``controlDict``: the main simulation control parameters. This includes, e.g. timing information, write format, and optional libraries that can be loaded at run time
+    - ``fvSchemes``: the selection of the numerical schemes
+    - ``fvSolution``: the iterative solver and pressure-velocity coupling parameters
+    - ``fvOptions``: user-specified finite volume options. Many OpenFOAM applications contain equation systems that can be manipulated at run time. These provide, e.g. additional source/sink terms, or enforce constraints.
+    - ``blockMeshDict``: to control the block-structrued mesher blockMesh
+    - ``snappyHexMeshDict``: to set the parameters for snappyHexMesh, another mesher shipped with OpenFOAM
+    - ``decomposeParDict`` : to set the parameters of the domain decomposition used for running OpenFOAM in parallel
     - ...
-    <system dictionaries>
+
 
 **constant**: Contains values that are constant during simulation like transport properties of the fluid (viscosity models) and mesh coordinates
 
-    - polyMesh: where the computational mesh is stored
-    - transportProperties: the material properties of the fluid
-    - turbulenceProperties: the turbulence modelling 
+    - ``polyMesh``: where the computational mesh is stored
+    - ``transportProperties``: the material properties of the fluid
+    - ``turbulenceProperties``: the turbulence modelling 
     - ...
 
 **<initial time directory>**: contains initial fields of the flow e.g. velocity, pressure etc. and boundary conditions
 
-    <field files>
 
 Additional directories can be generated, depending on user cases, most common ones include e.g.:
 
@@ -147,7 +146,7 @@ An few examples of the dictionaries are shown below:
 
 
 
-   .. tab:: fvSchemes
+   .. tab:: ``fvSchemes``
 
       .. code-block:: txt
 
