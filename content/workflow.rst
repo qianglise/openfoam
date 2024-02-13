@@ -87,7 +87,7 @@ Of course, this can vary depending on what mesher you use, wether you run in par
 
 
 
-An few examples of the dictionaries are shown below:
+A few examples of the dictionaries are shown below:
 
 .. tabs::
 
