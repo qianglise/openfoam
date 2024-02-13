@@ -285,8 +285,11 @@ Divergence schemes are specified in the fvSchemes file under the divSchemes sub-
 A typical use is for convection schemes, which transport a property under the influence of a velocity field specified using:
 
 .. tabs::
+
    .. tab:: divSchemes
+
       .. code-block:: txt
+
             divSchemes
             {
                 default         none;
@@ -328,11 +331,17 @@ Laplacian
 
 Laplacian schemes are specified in the fvSchemes file under the laplacianSchemes sub-dictionary using the syntax:
 
-laplacianSchemes
-{
-    default         none;
-    laplacian(gamma,phi) Gauss <interpolation scheme> <snGrad scheme>
-}
+.. tabs::
+
+   .. tab:: laplacianSchemes
+
+      .. code-block:: txt
+
+            laplacianSchemes
+            {
+                default         none;
+                laplacian(gamma,phi) Gauss <interpolation scheme> <snGrad scheme>
+            }
 
 All options are based on the application of Gauss theorem, requiring an interpolation scheme to transform coefficients from cell values to the faces, and a surface-normal gradient scheme.
 
@@ -342,11 +351,17 @@ SnGrad
 
 Surface-normal gradient schemes are specified in the fvSchemesfile under the snGradSchemes sub-dictionary using the syntax:
 
-snGradSchemes
-{
-    default         none;
-    snGrad(Q)       <snGrad scheme>;
-}
+.. tabs::
+
+   .. tab:: snGradSchemes
+
+      .. code-block:: txt
+            
+            snGradSchemes
+            {
+                default         none;
+                snGrad(Q)       <snGrad scheme>;
+            }
 
 Options
 
