@@ -146,7 +146,7 @@ An few examples of the dictionaries are shown below:
 
 
 
-   .. tab:: ``fvSchemes``
+   .. tab:: fvSchemes
 
       .. code-block:: txt
 
