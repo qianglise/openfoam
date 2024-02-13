@@ -61,8 +61,9 @@ In principle, as long as we are consistent in how we compute the surface integra
 
 Then we split the volume integrals across the volume faces/surfaces, note that 
 
- - each volume is assumed to be a convex polyhedron
- - the face values are approximated at the face centres with a 2nd order accurary
+ - Each volume is assumed to be a convex polyhedron
+ - The value at each face centroid is approximated given the values at the centroids of the two cells sharing the face
+ - To transform the quantity from the cell centre to the face centre, an interpolation scheme is required
 
 .. math::
       \int_V \frac{\partial \rho \phi }{\partial t}  \mathrm{d} V
@@ -132,6 +133,31 @@ The discretisation process employs user selected schemes to build the
 A matrix and \vec{b} vector, described in the following
 sections.  Choice of schemes are set in the
  "fvschemes"  dictionary.
+
+
+
+Interpolation schemes
+---------------------
+
+Interpolation schemes are specified in the fvSchemesfile under the interpolationSchemes sub-dictionary using the syntax:
+
+interpolationSchemes
+{
+    default         none;
+    <equation term> <interpolation scheme>;
+}
+
+
+A wide variety of interpolation schemes are available, ranging from those that are based solely on geometry, and others, e.g. convection schemes that are functions of the local flow.
+
+General
+
+    Linear: The most obvious option is linear interpolation, 2 nd order accurate.  However, for convective fluxes it introduces oscillations
+    Point linear
+
+Convection
+
+    See divergence schemes, many options for interpolating the  convective flux exist. Often the most important numerical choice in the simulation
 
 
 Temporal schemes
