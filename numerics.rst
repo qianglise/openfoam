@@ -53,7 +53,7 @@ such that:
     = \int_V \nabla \cdot \left(\Gamma_\phi \nabla \phi \right) \mathrm{d} V
     + \int_V S_\phi \mathrm{d} V
 
-Next step is to transform the volume integral to surface integral by using Gauss Thereom.
+Next step is to transform the volume integral to surface integral by using Gauss -Ostrogradsky Thereom.
 
 .. math::
       \int_V \frac{\partial \rho \phi }{\partial t}  \mathrm{d} V
@@ -62,9 +62,14 @@ Next step is to transform the volume integral to surface integral by using Gauss
     + \int_V S_\phi \mathrm{d} V
 
 
-.. callout:: Gauss Thereom
+.. callout:: The Gauss-Ostrogradsky Thereom
 
-   GPU-enabled systems require a heterogeneous programming model that involves both 
+   Suppose :math:`V` is a volume in three-dimensional space, which is compact and has a piecewise smooth boundary :math:`S`. If :math:`\mathbf{F}` is a continuously differentiable vector field defined on a neighborhood of :math:`V`. The closed boundary :math:`S` is oriented by outward-pointing normals, and :math:`\mathbf{n}` is the outward pointing unit normal at each point on the boundary. 
+
+   .. math::
+         \iiint_V (\nabla \cdot \mathbf{F}) \mathrm{d} V = \ooint_S  (\mathbf{F} \cdot  \mathbf{n}) \mathrm{d} S 
+
+   The Gauss-Ostrogradsky Theorem, also known as the Divergence Theorem, simply states that the outward flux of a vector field through a closed surface is equal to the volume integral of the divergence over the region inside the surface.
 
 
 
