@@ -58,8 +58,19 @@ Next step is to transform the volume integral to surface integral by using Gauss
 .. math::
       \int_V \frac{\partial \rho \phi }{\partial t}  \mathrm{d} V
     + \oint_S \left(\rho \phi \mathbf{u \cdot n} \right) \mathrm{d} S  
-    = \oint_S \Gamma_\phi  (\mathbf{ \nabla \phi \cdot n})  \mathrm{d} V
+    = \oint_S \Gamma_\phi  (\mathbf{ \nabla \phi \cdot n})  \mathrm{d} S
     + \int_V S_\phi \mathrm{d} V
+
+
+or 
+
+.. math::
+      \int_V \frac{\partial \rho \phi }{\partial t}  \mathrm{d} V
+    + \sum_{F} \oint_F \left(\rho_f \phi \mathbf{u \cdot n} \right) \mathrm{d} S  
+    = \sum_{F} \oint_F \Gamma_\phi  (\mathbf{ \nabla \phi \cdot n})  \mathrm{d} S
+    + \int_V S_\phi \mathrm{d} V
+
+
 
 
 .. callout:: The Gauss-Ostrogradsky Thereom
@@ -74,18 +85,19 @@ Next step is to transform the volume integral to surface integral by using Gauss
 
 
 Up to this point, the integral form is valid for an arbitrary volume, and for each volume, the integral equations are valid.
-In principle, as long as we are consistent in how we compute the surface integrals, it is conservative. 
+One problem left is to interpolating the cell centred values (known quantities) to the face centres, and this interpolation is one of the source of errors.
 
-Then we split the volume integrals across the volume faces/surfaces, note that 
+During the spliting of the volume integrals across the volume faces/surfaces, note that 
 
- - Each volume is assumed to be a convex polyhedron
+ - The control volume is assumed to be a convex polyhedron, i.e. can be of any shape, only if it is convex and the faces made up the volume are planar
+ - All values of all variables are computed and saved on the controid of the control volume, i.e. cell centred collocated arrangement
  - The value at each face centroid is approximated given the values at the centroids of the two cells sharing the face
  - To transform the quantity from the cell centre to the face centre, an interpolation scheme is required
 
 .. math::
       \int_V \frac{\partial \rho \phi }{\partial t}  \mathrm{d} V
     + \sum_{Faces} \left(\rho_f \phi_f \mathbf{u_f \cdot n_f} \right) S_f  
-    = \sum_{Faces} \Gamma  (\mathbf{ \nabla \phi \cdot n})  \mathrm{d} V
+    = \sum_{Faces} \Gamma_\phi  (\mathbf{ \nabla \phi \cdot n})  \mathrm{d} V
     + \int_V S_\phi \mathrm{d} V
 
 
