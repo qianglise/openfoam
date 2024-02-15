@@ -34,16 +34,22 @@ of the general scalar transport equation for the property  :math:`\phi`  takes t
 form:
 
 .. math::
-   \frac{\partial \rho \phi }{\partial t} +  \nabla \cdot \left(\rho \phi \vec{u} \right) =  \nabla \cdot \left(\Gamma \nabla \phi \right) + S_\phi 
+   \frac{\partial \rho \phi }{\partial t} +  \nabla \cdot \left(\rho \phi \mathbf{u} \right) =  \nabla \cdot \left(\Gamma_\phi  \nabla \phi \right) + S_\phi 
+
+
+.. note:: 
+
+    By setting different values for :math:`\phi`, :math:`\Gamma_\phi` and :math:`S_\phi`, one can obtain Navier-Stokes equations.
+    For example, letting :math:`\phi = 1`, :math:`\Gamma_\phi = 0 ` and :math:`S_\phi = 0`, we will end up with the continuity equation
 
 
 
-The Finite Volume Method requires the integration over a 3-D control volume,
+The Finite Volume Method requires the integration over a 3-D **control volume**,
 such that:
 
 .. math::
       \int_V \frac{\partial \rho \phi }{\partial t}  dV
-    + \int_V \nabla \cdot \left(\rho \phi \vec{u} \right) dV
+    + \int_V \nabla \cdot \left(\rho \phi \mathbf{u} \right) dV
     = \int_V \nabla \cdot \left(\Gamma \nabla \phi \right) dV
     + \int_V S_\phi dV
 
