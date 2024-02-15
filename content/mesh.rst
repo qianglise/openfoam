@@ -101,6 +101,10 @@ Meshing controls are set in the ``snappyHexMeshDict`` located in the case **syst
     - Global setting
 
 The overall meshing process is summarised by the figure below:
+
+.. figure:: img/snappyHexMesh-overview-small.png
+   :align: center
+
 https://doc.openfoam.com/2312/tools/pre-processing/mesh/generation/snappyhexmesh/figures/snappyHexMesh-overview-small.png
 
 This includes:
