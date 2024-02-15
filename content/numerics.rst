@@ -105,8 +105,8 @@ During the spliting of the volume integrals across the volume faces/surfaces, no
 
 .. math::
       \int_V \frac{\partial \rho \phi }{\partial t}  \mathrm{d} V
-    + \sum_{Faces} \left(\rho_f \phi_f \mathbf{u}_f \cdot \mathbf{n}_f \right) S_f  
-    = \sum_{Faces} ({\Gamma_\phi}_f  \nabla \phi_f \cdot \mathbf{n}_f)    S_f
+    + \sum_{F} \left(\rho_f \phi_f \mathbf{u}_f \cdot \mathbf{n}_f \right) S_f  
+    = \sum_{F} ({\Gamma_\phi}_f  \nabla \phi_f \cdot \mathbf{n}_f)    S_f
     + \int_V S_\phi \mathrm{d} V
 
 

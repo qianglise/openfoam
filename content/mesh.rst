@@ -105,7 +105,10 @@ The overall meshing process is summarised by the figure below:
 .. figure:: img/snappyHexMesh-overview-small.png
    :align: center
 
-https://doc.openfoam.com/2312/tools/pre-processing/mesh/generation/snappyhexmesh/figures/snappyHexMesh-overview-small.png
+   Figure source: OpenFOAM documentation `Meshing process <https://doc.openfoam.com/2312/tools/pre-processing/mesh/generation/snappyhexmesh/#meshing-process/>`__.
+
+
+
 
 This includes:
 
