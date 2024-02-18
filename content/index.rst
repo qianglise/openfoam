@@ -11,8 +11,8 @@ OpenFOAM training workshop
    :caption: Table of contents
 
    introduction
-   numerics
    workflow
+   numerics
    mesh
    handson
 
