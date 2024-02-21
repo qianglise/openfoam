@@ -5,12 +5,12 @@ OpenFOAM Introduction
 
 .. questions::
 
-   - What is 
-   - What problem do 
+   - What is OpenFOAM?
+   - What problem does OpenFOAM solve? 
 
 .. objectives::
 
-   - introduce the basics of OpenFOAM
+   - Know the basics of OpenFOAM
 
 .. instructor-note::
 
@@ -29,7 +29,7 @@ What is OpenFOAM ?
 
 
 Different variants of OpenFOAM
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------
 
 There are two main variants of OpenFOAM:
 
@@ -49,7 +49,7 @@ https://www.openfoam.com/news/history
 
 
 Which version to use?
-~~~~~~~~~~~~~~~~~~~~~
+---------------------
 
 It depends on the features you want to use
 
@@ -58,3 +58,22 @@ It depends on the features you want to use
     - Otherwise it is just matter of taste!
 
 We will be using the OpenCFD Ltd version with vXXXXXX for the training
+
+
+OpenFOAM executables
+--------------------
+
+Unlike many other software, OpenFOAM does not have a unique executable. 
+Once compiled, a large number of excutebles is generated and they fall into two categories: 
+
+  - **solver**: that is designed to solve a specific continuum mechanics problem
+  - **utility**: that is designed to perform tasks that involve data manipulation.
+
+For every solver, mesh generation etc. there is a separate executable! 
+You should run the right executable according to the solver you are using!
+Check the documentation to see recommended solvers for different cases.
+
+- ‘simpleFoam’: if you use SIMPLE algorithm
+- ‘icoFoam’: if you use PISO algorithm for laminar flow
+- ...
+
