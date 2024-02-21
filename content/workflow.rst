@@ -10,7 +10,8 @@ Workflow
 
 .. objectives::
 
-   - Explain 
+   - Know the basic settings and structure of OpenFOAM cases
+   - Be able to create a simple test case
 
 .. instructor-note::
 
