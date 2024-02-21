@@ -350,16 +350,3 @@ Pressure-velocity coupling
     Transient: PISO
     Transient: PIMPLE
 
-
-OpenFOAM executables
---------------------
-
-Unlike many other software, OpenFOAM does not have a unique executable. 
-For every solver, mesh generation etc. there is a separate executable! 
-You should run the right executable according to the solver you are using!
-Check the documentation to see recommended solvers for different cases.
-
-- ‘simpleFoam’: if you use SIMPLE algorithm
-- ‘icoFoam’: if you use PISO algorithm for laminar flow
-- ...
-
