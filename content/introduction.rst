@@ -81,10 +81,12 @@ Check the documentation to see recommended solvers for different cases.
 OpenFOAM vs commercial software
 -------------------------------
 
+Being an open source software, the advantages of OpenFOAM is quite obvious:
 
-  - very deep learning curve 
-  - not easy to use
-  - no user-friendly interface
-
-  - open source with a strong focus on customization and flexibility
+  - free to use
+  - a strong focus on customization and flexibility
   - full control over the simulation
+
+All these nice features come with a price: very deep learning curve. 
+For example, contrary to the commercial CFD softwares, there are no default values in OpenFOAM. 
+It is up to the user to set those values which means the user has to know what he/she is doing.
