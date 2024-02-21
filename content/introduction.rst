@@ -77,3 +77,14 @@ Check the documentation to see recommended solvers for different cases.
 - ‘icoFoam’: if you use PISO algorithm for laminar flow
 - ...
 
+
+OpenFOAM vs commercial software
+-------------------------------
+
+
+  - very deep learning curve 
+  - not easy to use
+  - no user-friendly interface
+
+  - open source with a strong focus on customization and flexibility
+  - full control over the simulation
