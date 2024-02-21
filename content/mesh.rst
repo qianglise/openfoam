@@ -5,12 +5,12 @@ Mesh
 
 .. questions::
 
-   - What is 
-   - What problem do 
+   - What is a mesher?
 
 .. objectives::
 
-   - Explain 
+   - Understand the basics of blockMesh and snappyHexMesh
+   - Know how to use blockMesh and snappyHexMesh
 
 .. instructor-note::
 
