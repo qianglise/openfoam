@@ -656,7 +656,7 @@ There are many settings which can be modified to refine and improve the mesh qua
   ...
 
 refines the mesh in a predifined box. Try changing the parameters of the box and look at the effect.
-You also try creating a new geometric primitve and refining it. As usual, to see what is there set *type* to *banana*,
+You could also try creating a new geometric primitve and refining it. As usual, to see what is there set *type* to *banana*,
 let the mesher crash and write out available valid options.
 
 Function objects
