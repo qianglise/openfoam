@@ -623,7 +623,7 @@ time directories written.
 Can you see the difference from step to step?
 Note that *addLayers* can be removed, and the produced mesh will still conform to the geometry.
 
-There are many settings in can be modified to refine and improve the mesh quality. For example,
+There are many settings which can be modified to refine and improve the mesh quality. For example,
 
 .. code:: bash
 
